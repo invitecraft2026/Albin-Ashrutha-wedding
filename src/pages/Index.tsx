@@ -6,6 +6,7 @@ import ScratchReveal from "@/components/ScratchReveal";
 import Venue from "@/components/Venue";
 import Footer from "@/components/Footer";
 import MusicPlayer, { type MusicPlayerHandle } from "@/components/MusicPlayer";
+import Gallery from "@/components/Gallery";
 
 const Index = () => {
   const [entered, setEntered] = useState(false);
@@ -27,6 +28,7 @@ const Index = () => {
           <VideoHero />
           <Countdown />
           <ScratchReveal />
+          {/* <Gallery/> */}
           <Venue />
           <Footer />
         </div>

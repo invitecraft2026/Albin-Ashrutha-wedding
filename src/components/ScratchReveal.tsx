@@ -2,13 +2,9 @@ import { useRef, useState, useEffect, useCallback } from "react";
 import confetti from "canvas-confetti";
 import FloralDivider from "./FloralDivider";
 
-// 📅 Engagement Calendar
-const ENGAGEMENT_CALENDAR_URL =
-  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Neethu+%26+Allan+Engagement&dates=20260511T053000Z/20260511T083000Z&details=Join+us+for+the+engagement+ceremony&location=St+Thomas+Orthodox+Church,+Umayattukara";
-
 // 💍 Wedding Calendar
 const WEDDING_CALENDAR_URL =
-  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Neethu+%26+Allan+Wedding&dates=20260514T053000Z/20260514T083000Z&details=Join+us+for+the+wedding+ceremony&location=St+Thomas+Orthodox+Church,+Umayattukara";
+  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Albin+%26+Ashrutha+Wedding&dates=20260516T050000Z/20260516T080000Z&details=Join+us+for+the+wedding+ceremony&location=St+Thomas+Orthodox+Church,+Umayattukara";
 
 const ScratchReveal = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -82,9 +78,7 @@ const ScratchReveal = () => {
 
     if (transparent / (data.length / 4) > 0.55) {
       setRevealed(true);
-
       startFlowerAnimation();
-
       confetti({
         particleCount: 80,
         spread: 70,
@@ -151,7 +145,7 @@ const ScratchReveal = () => {
         <FloralDivider className="mb-8" />
 
         <h2 className="font-subheading text-2xl md:text-3xl text-sage mb-8 tracking-wider">
-          Reveal the Dates
+          Reveal the Date
         </h2>
 
         <div
@@ -160,26 +154,16 @@ const ScratchReveal = () => {
         >
           {/* 🎉 Revealed Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-            
-            {/* Engagement */}
-            <p className="text-xs tracking-widest text-sage/70 uppercase mb-1">
-              Engagement
-            </p>
-            <p className="font-display italic text-2xl md:text-3xl text-sage">
-              May 11, 2026
-            </p>
-            <p className="font-body text-sage/70 text-sm mb-3">
-              11:00 AM IST
-            </p>
-
-            <div className="w-10 h-[1px] bg-gold/60 my-2" />
 
             {/* Wedding */}
             <p className="text-xs tracking-widest text-sage/70 uppercase mb-1">
               Wedding
             </p>
             <p className="font-display italic text-2xl md:text-3xl text-sage">
-              May 14, 2026
+              May 16, 2026
+            </p>
+            <p className="font-body text-sage/70 text-sm mt-1">
+              10:30 AM IST
             </p>
 
           </div>
@@ -200,24 +184,15 @@ const ScratchReveal = () => {
           )}
         </div>
 
-        {/* 📅 Calendar Buttons */}
+        {/* 📅 Calendar Button */}
         {revealed && (
-          <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center animate-fade-up">
-            
-            <button
-              onClick={() => window.open(ENGAGEMENT_CALENDAR_URL, "_blank")}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-sage text-cream font-subheading tracking-wider border-2 border-gold/50 hover:bg-sage/90 transition-colors shadow-lg"
-            >
-              📅 Engagement
-            </button>
-
+          <div className="mt-8 flex justify-center animate-fade-up">
             <button
               onClick={() => window.open(WEDDING_CALENDAR_URL, "_blank")}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gold text-sage font-subheading tracking-wider border-2 border-sage/50 hover:opacity-90 transition-colors shadow-lg"
             >
-              💍 Wedding
+              💍 Add to Calendar
             </button>
-
           </div>
         )}
       </div>

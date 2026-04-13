@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import FloralDivider from "./FloralDivider";
 import FallingPetals from "./FallingPetals";
 
-const ENGAGEMENT_DATE = new Date("2026-05-11T05:30:00Z");
-const WEDDING_DATE = new Date("2026-05-14T05:30:00Z");
+const WEDDING_DATE = new Date("2026-05-16T05:00:00Z");
 
 const getRemaining = (target: Date) => {
   const diff = target.getTime() - Date.now();
@@ -147,14 +146,12 @@ const CountdownCard = ({
 );
 
 const Countdown = () => {
-  const [engagementTime, setEngagementTime] = useState(getRemaining(ENGAGEMENT_DATE));
   const [weddingTime, setWeddingTime] = useState(getRemaining(WEDDING_DATE));
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const id = setInterval(() => {
-      setEngagementTime(getRemaining(ENGAGEMENT_DATE));
       setWeddingTime(getRemaining(WEDDING_DATE));
     }, 1000);
     return () => clearInterval(id);
@@ -194,7 +191,7 @@ const Countdown = () => {
             mark your calendar
           </p>
           <h2 className="font-display italic text-3xl md:text-4xl text-sage">
-            Our Special Days
+            Our Special Day
           </h2>
           <div className="flex items-center justify-center gap-3 mt-4">
             <div className="h-px w-12 bg-gold/40" />
@@ -203,41 +200,25 @@ const Countdown = () => {
           </div>
         </div>
 
-        {/* Cards */}
-        <div className="flex flex-col gap-5">
-          {/* Engagement card — info LEFT, timer RIGHT */}
-          <CountdownCard
-            icon="💍"
-            title="Engagement"
-            date="May 11, 2026 • 11:00 AM"
-            time={engagementTime}
-            accent="#4a6741"
-            bg="linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(232,240,216,0.9) 100%)"
-            visible={visible}
-            delay={0.2}
-            flip={false}
-          />
-
-          {/* Wedding card — info RIGHT, timer LEFT (flipped) */}
-          <CountdownCard
-            icon="💒"
-            title="Wedding"
-            date="May 14, 2026 • 11:00 AM"
-            time={weddingTime}
-            accent="#6B8F4E"
-            bg="linear-gradient(135deg, rgba(197,216,164,0.6) 0%, rgba(255,255,255,0.9) 100%)"
-            visible={visible}
-            delay={0.4}
-            flip={true}
-          />
-        </div>
+        {/* Card */}
+        <CountdownCard
+          icon="💒"
+          title="Wedding"
+          date="May 16, 2026 • 10:30 AM"
+          time={weddingTime}
+          accent="#6B8F4E"
+          bg="linear-gradient(135deg, rgba(197,216,164,0.6) 0%, rgba(255,255,255,0.9) 100%)"
+          visible={visible}
+          delay={0.2}
+          flip={false}
+        />
 
         {/* Bottom divider */}
         <div
           className="mt-14"
           style={{
             opacity: visible ? 1 : 0,
-            transition: "opacity 1s ease 0.7s",
+            transition: "opacity 1s ease 0.4s",
           }}
         >
           <FloralDivider />

@@ -56,7 +56,7 @@ const Footer = () => (
     </p>
 
     <p className="font-body text-cream/60 text-sm tracking-[0.3em]">
-      11 · 05 · 2026
+      16 · 06 · 2026
     </p>
   </footer>
 );
