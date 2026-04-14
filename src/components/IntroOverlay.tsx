@@ -33,7 +33,7 @@ const IntroOverlay = ({ onEnter }: IntroOverlayProps) => {
       <video
         ref={videoRef}
         src="/envlopintro.mp4"
-        playsInline
+        playsInline   
         preload="auto"
         muted // ← added
         onEnded={handleVideoEnd}
