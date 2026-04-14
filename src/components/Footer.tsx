@@ -19,40 +19,48 @@ const Footer = () => (
           />
         ))}
         {/* Monogram */}
-        <text
-          x="60"
-          y="55"
-          textAnchor="middle"
-          fontFamily="'Great Vibes', cursive"
-          fontSize="22"
-          fill="hsl(var(--gold))"
-        >
-          A
-        </text>
-        <text
-          x="60"
-          y="68"
-          textAnchor="middle"
-          fontSize="12"
-          fill="hsl(var(--cream))"
-        >
-          ♡
-        </text>
-        <text
-          x="60"
-          y="82"
-          textAnchor="middle"
-          fontFamily="'Great Vibes', cursive"
-          fontSize="22"
-          fill="hsl(var(--gold))"
-        >
-          A
-        </text>
+       <text
+  x="60"
+  y="52"
+  textAnchor="middle"
+  fontFamily="'Cormorant Garamond', 'Garamond', serif"
+  fontSize="20"
+  fontWeight="600"
+  letterSpacing="2"
+  fill="hsl(var(--gold))"
+>
+  A
+</text>
+
+<text
+  x="60"
+  y="67"
+  textAnchor="middle"
+  fontFamily="'Cormorant Garamond', 'Garamond', serif"
+  fontSize="11"
+  letterSpacing="3"
+  fill="hsl(var(--cream))"
+>
+  &amp;
+</text>
+
+<text
+  x="60"
+  y="82"
+  textAnchor="middle"
+  fontFamily="'Cormorant Garamond', 'Garamond', serif"
+  fontSize="20"
+  fontWeight="600"
+  letterSpacing="2"
+  fill="hsl(var(--gold))"
+>
+  A
+</text>
       </svg>
     </div>
 
     <p className="font-display italic text-xl md:text-2xl text-cream/90 mb-4">
-      Together is a beautiful place to be
+     Therefore what god has joined together,let no one seperated-Mark 10:9
     </p>
 
     <p className="font-body text-cream/60 text-sm tracking-[0.3em]">
