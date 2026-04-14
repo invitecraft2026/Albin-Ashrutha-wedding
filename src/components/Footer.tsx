@@ -27,7 +27,7 @@ const Footer = () => (
           fontSize="22"
           fill="hsl(var(--gold))"
         >
-          N
+          A
         </text>
         <text
           x="60"
