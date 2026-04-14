@@ -8,6 +8,7 @@ const IntroOverlay = ({ onEnter }: IntroOverlayProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [started, setStarted] = useState(false);
   const [fading, setFading] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   const handleStart = () => {
     if (started) return;
@@ -28,14 +29,16 @@ const IntroOverlay = ({ onEnter }: IntroOverlayProps) => {
       onClick={handleStart}
       className="fixed inset-0 z-50 cursor-pointer overflow-hidden"
     >
+      {/* Background always painted first, no flash */}
       <div className="absolute inset-0" style={{ background: "#c5d8a4" }} />
 
       <video
         ref={videoRef}
         src="/introvideo2.mp4"
         playsInline
-        preload="auto"
-        muted // ← added
+        muted
+        preload="metadata" // ← "auto" causes Instagram browser loading spinner
+        onCanPlayThrough={() => setVideoReady(true)} // ← only show when ready
         onEnded={handleVideoEnd}
         style={{
           position: "absolute",
@@ -47,9 +50,13 @@ const IntroOverlay = ({ onEnter }: IntroOverlayProps) => {
           objectFit: "cover",
           objectPosition: "center",
           background: "transparent",
+          // ← hide video element until it's actually ready to play
+          opacity: videoReady ? 1 : 0,
+          transition: "opacity 0.3s ease",
         }}
       />
 
+      {/* Tap prompt dots */}
       <div
         className="absolute inset-0 flex items-end justify-center pointer-events-none"
         style={{
@@ -74,6 +81,7 @@ const IntroOverlay = ({ onEnter }: IntroOverlayProps) => {
         </div>
       </div>
 
+      {/* Fade-out overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
