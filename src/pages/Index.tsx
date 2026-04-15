@@ -6,33 +6,7 @@ import ScratchReveal from "@/components/ScratchReveal";
 import Venue from "@/components/Venue";
 import Footer from "@/components/Footer";
 import MusicPlayer, { type MusicPlayerHandle } from "@/components/MusicPlayer";
-import Gallery from "@/components/Gallery";
-
-// const ScrollHint = () => (
-//   <div className="flex flex-col items-center justify-center py-6 gap-2 animate-fade-up">
-//     {/* Scroll label */}
-   
-
-//     {/* Animated bouncing arrow */}
-//     <div className="flex flex-col items-center gap-[3px] animate-bounce">
-//       {/* <span
-//         className="block w-[1px] h-6 bg-gradient-to-b from-transparent to-amber-700/50"
-//       /> */}
-//       <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         viewBox="0 0 24 24"
-//         fill="none"
-//         stroke="currentColor"
-//         strokeWidth="1.5"
-//         strokeLinecap="round"
-//         strokeLinejoin="round"
-//         className="w-4 h-4 text-amber-700/60"
-//       >
-//         <polyline points="6 9 12 15 18 9" />
-//       </svg>
-//     </div>
-//   </div>
-// );
+// import Gallery from "@/components/Gallery";
 
 const Index = () => {
   const [entered, setEntered] = useState(false);
@@ -40,21 +14,24 @@ const Index = () => {
 
   const handleEnter = () => {
     setEntered(true);
-    setTimeout(() => musicRef.current?.play(), 100);
+
+    // play music after entering
+    setTimeout(() => {
+      musicRef.current?.play();
+    }, 300);
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+
+      {/* INTRO OVERLAY */}
       {!entered && <IntroOverlay onEnter={handleEnter} />}
 
+      {/* MAIN WEBSITE */}
       {entered && (
         <>
           <div className="animate-fade-up">
             <VideoHero />
-
-            {/* Scroll hint sits right below the hero */}
-            {/* <ScrollHint /> */}
-
             <Countdown />
             <ScratchReveal />
             {/* <Gallery /> */}
@@ -62,6 +39,7 @@ const Index = () => {
             <Footer />
           </div>
 
+          {/* MUSIC */}
           <MusicPlayer ref={musicRef} />
         </>
       )}
