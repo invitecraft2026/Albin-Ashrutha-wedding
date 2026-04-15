@@ -60,7 +60,7 @@ const Footer = () => (
     </div>
 
     <p className="font-display italic text-xl md:text-2xl text-cream/90 mb-4">
-     Therefore what god has joined together,let no one seperated-Mark 10:9
+     Therefore what god has joined together,let no one seperate-Mark 10:9
     </p>
 
     <p className="font-body text-cream/60 text-sm tracking-[0.3em]">
