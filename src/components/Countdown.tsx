@@ -34,7 +34,6 @@ const TimeUnit = ({
         boxShadow: `0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6)`,
       }}
     >
-      {/* Top shine */}
       <div
         className="absolute top-0 left-0 right-0 h-1/2 rounded-t-2xl"
         style={{ background: "rgba(255,255,255,0.15)" }}
@@ -58,7 +57,6 @@ const TimeUnit = ({
 const CountdownCard = ({
   icon,
   title,
-  date,
   time,
   accent,
   bg,
@@ -68,7 +66,6 @@ const CountdownCard = ({
 }: {
   icon: string;
   title: string;
-  date: string;
   time: { d: number; h: number; m: number; s: number };
   accent: string;
   bg: string;
@@ -88,7 +85,6 @@ const CountdownCard = ({
       boxShadow: "0 20px 60px rgba(74,103,65,0.12), 0 4px 16px rgba(0,0,0,0.06)",
     }}
   >
-    {/* Decorative corner circles */}
     <div
       className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20"
       style={{ background: accent }}
@@ -103,7 +99,7 @@ const CountdownCard = ({
         flip ? "md:flex-row-reverse" : "md:flex-row"
       } items-center gap-6 md:gap-10`}
     >
-      {/* Left / Right info block */}
+      {/* Info block */}
       <div
         className={`flex flex-col items-center md:items-start text-center md:text-left shrink-0 ${
           flip ? "md:items-end md:text-right" : ""
@@ -111,30 +107,20 @@ const CountdownCard = ({
       >
         <span className="text-4xl mb-3">{icon}</span>
         <h3
-          className="font-display italic text-2xl sm:text-3xl md:text-4xl mb-1"
+          className="font-display italic text-2xl sm:text-3xl md:text-4xl"
           style={{ color: accent }}
         >
           {title}
         </h3>
-        <div
-          className="w-10 h-px my-3"
-          style={{ background: `${accent}60` }}
-        />
-        <p
-          className="font-body text-xs sm:text-sm tracking-widest uppercase"
-          style={{ color: `${accent}80` }}
-        >
-          {date}
-        </p>
       </div>
 
-      {/* Thin vertical divider on md+ */}
+      {/* Divider */}
       <div
         className="hidden md:block w-px self-stretch opacity-20"
         style={{ background: accent }}
       />
 
-      {/* Timer units */}
+      {/* Timer */}
       <div className="flex gap-2 sm:gap-3 md:gap-4 justify-center flex-1">
         <TimeUnit value={time.d} label="Days" accent={accent} />
         <TimeUnit value={time.h} label="Hours" accent={accent} />
@@ -178,13 +164,13 @@ const Countdown = () => {
       <FallingPetals count={12} />
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        {/* Section heading */}
+        {/* Heading */}
         <div
           className="text-center mb-12"
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(30px)",
-            transition: "all 0.9s cubic-bezier(0.22,1,0.36,1) 0s",
+            transition: "all 0.9s cubic-bezier(0.22,1,0.36,1)",
           }}
         >
           <p className="font-body text-xs tracking-[0.3em] uppercase text-sage/60 mb-3">
@@ -193,27 +179,20 @@ const Countdown = () => {
           <h2 className="font-display italic text-3xl md:text-4xl text-sage">
             Our Special Day
           </h2>
-          <div className="flex items-center justify-center gap-3 mt-4">
-            <div className="h-px w-12 bg-gold/40" />
-            <div className="w-1.5 h-1.5 rounded-full bg-gold/60" />
-            <div className="h-px w-12 bg-gold/40" />
-          </div>
         </div>
 
         {/* Card */}
         <CountdownCard
           icon="💒"
           title="Wedding"
-          date="May 16, 2026 • 10:30 AM"
           time={weddingTime}
           accent="#6B8F4E"
           bg="linear-gradient(135deg, rgba(197,216,164,0.6) 0%, rgba(255,255,255,0.9) 100%)"
           visible={visible}
           delay={0.2}
-          flip={false}
         />
 
-        {/* Bottom divider */}
+        {/* Divider */}
         <div
           className="mt-14"
           style={{
